@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="navbar large">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Team Falcon</a>
@@ -13,19 +13,19 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Projects
                 </a>
                 <ul class="dropdown-menu">
                     <li *ngFor="let item of buttonItems">
-                        <button (click)="handleEvent(item)" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                        <a (click)="handleEvent(item)" class="dropdown-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                           {{ item }}
-                        </button>
+                        </a>
                       </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink="homepage">Home</a>
+                <a class="nav-link active" aria-current="page" routerLink="homepage">About</a>
               </li>
             </ul>
           </div>
@@ -34,29 +34,28 @@
     </nav>  
   </div>
 
-  <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">{{title}}</h5>
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" >
+    <div class="offcanvas-header bg-secondary">
+      <h5 class="offcanvas-title text-dark" id="offcanvasScrollingLabel">{{title}}</h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <p>Try scrolling the rest of the page to see this option in action.</p>
       <ul class="navbar-nav">
-        <b>Dashboards</b>
-        <p>Prod</p>
+        <p class="border-bottom">Dashboards</p>
+        <li>Prod</li>
         <li *ngFor="let dashboard of prod_dashboards">
-            <a [href]="dashboard.dash_path">{{ dashboard.dash_name }}</a>
+            <a class="link-primary" [href]="dashboard.dash_path">{{ dashboard.dash_name }}</a>
         </li>
-        <p>Lower</p>
+        <li>Lower</li>
         <li *ngFor="let dashboard of lower_dashboards">
             <a [href]="dashboard.dash_path">{{ dashboard.dash_name }}</a>
         </li>
-        <b>Alerts</b>
-        <p>Prod</p>
+        <p class="border-bottom">Alerts</p>
+        <li>Prod</li>
         <li *ngFor="let alert of prod_alerts">
           <a [href]="alert.alert_path">{{ alert.alert_name }}</a>
         </li>
-        <p>Lower</p>
+        <li>Lower</li>
         <li *ngFor="let alert of lower_alerts">
             <a [href]="alert.alert_path">{{alert.alert_name}}</a>
         </li>

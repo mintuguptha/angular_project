@@ -12,12 +12,12 @@ export class NavbarComponent {
   prod_alerts: { alert_path: string; alert_name: string }[] = [];
   lower_alerts: { alert_path: string; alert_name: string }[] = [];
 
-  public buttonItems= ['hcs', 'dis'];
+  public buttonItems= ['HCS', 'DIS'];
 
   handleEvent(item: string): void {
     switch (item) {
-      case 'hcs':
-        this.title = 'hcs';
+      case 'HCS':
+        this.title = 'HCS';
         this.prod_dashboards = [
           { dash_path: 'https://www.google.com/', dash_name: 'hcs_prod_dashboard_1' },
           { dash_path: 'https://www.facebook.com/', dash_name: 'hcs_prod_dashboard_1' }
@@ -35,8 +35,8 @@ export class NavbarComponent {
           { alert_path: 'https://www.facebook.com/', alert_name: 'hcs_lower_alert_2' }
         ];
         break;
-      case 'dis':
-        this.title = 'dis';
+      case 'DIS':
+        this.title = 'DIS';
         this.prod_dashboards = [
           { dash_path: 'https://www.google.com/', dash_name: 'dis_Dashboard1' },
           { dash_path: 'https://www.facebook.com/', dash_name: 'dis_Dashboard2' }
